@@ -36,33 +36,56 @@ function reverse(arr) {
 // console.log(reverse([12,23,34, 'Ihsan']))
 
 // 3
-// function unique(arr) {
-//     let array = [arr[0]];
-//     for(let i = 0;i<arr.length;i++) {
-//         for(let j=0;j<array.length;j++) {
-//             console.log(arr[i], arr[j])
-//             if (arr[i] !== array[j]) {
-//                 array.push(arr[j]);
-//             }
-//         }
-//     }
-//     console.log(array)
-// }
+function unique (arr) {
+    const result = [];
+    for(let i=0;i<arr.length;i++) {
+        let flag = false;
+        for(let j=0;j<result.length;j++) {
+            if (arr[i] === result[j]) {
+                flag = true;
+            }
+        }
+        if (!flag) result.push(arr[i])
+    }
+    return result;
+}
 
 
 // 4
-// function jajanBoba(uang) {
-//     const listBoba = [
-//         ['Xing Fu Tang', 38000], 
-//         ['OneZo', 53500],
-//         ['KOI The', 36000],
-//         ['Chatime', 25000],
-//         ['Kokumi', 42000],
-//         ['Bubble Station Milk', 13000]
-//     ]
-//     for(let i =0;i<listBoba.length;i++) {
-//         for(let j = 0;j<listBoba[i].length;j++) {
-//             if(uang - listBoba)
-//         }
-//     }
-// }
+function jajanBoba(uang) {
+    const listBoba = [
+        ['Xing Fu Tang', 38000], 
+        ['OneZo', 53500],
+        ['KOI The', 36000],
+        ['Chatime', 25000],
+        ['Kokumi', 42000],
+        ['Bubble Station Milk', 13000]
+    ]
+    console.log(`David memulai jajan dengan uang ${uang} rupiah`);
+    for (let i =0;i<listBoba.length;i++) {
+        if(uang - listBoba[i][1] >= 0) {
+            console.log(`Dengan uang jajan ${uang}, cukup beli ${listBoba[i][0]},
+            setelah membeli ${listBoba[i][0]} uangnya berkurang ${listBoba[i][1]}
+            `);
+            uang -= listBoba[i][1];
+            console.log(`Sisa uang ${uang} `)
+        } else {
+            console.log(`Dengan uang sisa ${uang}, tidak cukup beli ${listBoba[i][0]}`)
+        }
+    }
+    console.log(`David pulang dengan sisa uang ${uang}`)
+}
+
+// Bonus
+// 5
+function searchSameArray = (arr1, arr2) {
+    let same = [];
+    for(let i=0;i<arr1.length;i++) {
+        let flag = false;
+        for(let j=0;j<arr2.length;j++) {
+            if (arr1[i] === arr2[j]) flag = true;
+        }
+        if (flag) same.push(arr2[i])
+    }
+    return same;
+}
